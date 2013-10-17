@@ -1,0 +1,40 @@
+<?php
+// =====================================================================
+// This file is part of get-MSM-stats.php
+//
+// This script is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This script is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this script.  If not, see <http://www.gnu.org/licenses/>.
+// =====================================================================
+
+// include file with MSM controler specific settings
+
+// MSM controller IP (or hostname, if you have a proper DNS entry)
+// for teaming controller, set this to the team IP
+$MSMController = '127.0.0.1';
+
+// Currently only support SNMP v1 !
+// set Community name
+$Community = 'YOUR COMMUNITY STRING';
+
+// file path and base name where to store the results
+// you can modify this as needed, as long as the variable $file exists
+// and points to the location of your output file
+// here we create an output file that has the year and month in the filename
+// this prevents the file from getting very large, and you can then compress each month as needed
+// for long term storage
+
+$filebase = '/var/log/MSM-associations.';
+$month = date('Y-m');
+
+// this variable $file has to point to a writable file!
+$file = $filebase . $month . '.csv';
